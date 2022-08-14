@@ -1,0 +1,122 @@
+
+use('pokemon');
+db.game.drop()
+
+
+db.game.insertMany(
+  [
+    {
+      "_id":"vicky",
+      "contacts":[
+        {
+          "name":"a",
+          "age":10
+        },
+        {
+          "name":"b",
+          "age":15
+        },
+        {
+          "name":"c",
+          "age":25
+        }
+      ]
+    },
+    {
+      "_id":"vinny",
+      "contacts":[
+        {
+          "name":"d",
+          "age":18
+        },
+        {
+          "name":"e",
+          "age":11
+        },
+        {
+          "name":"f",
+          "age":29
+        }
+      ]
+    },
+    {
+      "_id":"yash",
+      "contacts":[
+        {
+          "name":"g",
+          "age":25
+        },
+        {
+          "name":"h",
+          "age":25
+        },
+        {
+          "name":"i",
+          "age":49
+        }
+      ]
+    }
+  ]
+)
+
+
+
+
+// Add data into existing array
+/*db.game.updateOne(
+  {
+    "_id":"yash"
+  },
+  {
+    "$push" : {
+      "contacts" : {"$each" : [{"name":"Z","age":"100"},{"name":"x","age":"105"}]}
+    }
+  }
+)*/
+
+
+
+
+// Update the data of a existing record
+/*db.game.update(
+  {
+    "_id":"yash"
+  },
+  {
+    "$set" : {
+         "contacts.$[eleX].age":105,
+         "contacts.$[eley].age":100
+    }
+  },
+  {
+    "arrayFilters" : [
+      {
+        "eleX.name" : "i"
+      },
+      {
+        "eley.name" : "h"
+      }
+    ]
+  }
+)*/
+
+
+//Remove The Existing The Data from Array
+
+/*db.game.updateOne(
+  {
+    "_id":"yash"
+  },
+  {
+    "$pull" : {
+      "contacts" : {
+        "name" : {
+          "$in" : ["i","h"]
+        }
+      }
+    }
+  }
+) */
+
+
+db.game.find({"_id":"yash"})
