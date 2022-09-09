@@ -1,63 +1,63 @@
 
-use('pokemon');
-db.game.drop()
+// use('pokemon');
+// db.game.drop()
 
 
-db.game.insertMany(
-  [
-    {
-      "_id":"vicky",
-      "contacts":[
-        {
-          "name":"a",
-          "age":10
-        },
-        {
-          "name":"b",
-          "age":15
-        },
-        {
-          "name":"c",
-          "age":25
-        }
-      ]
-    },
-    {
-      "_id":"vinny",
-      "contacts":[
-        {
-          "name":"d",
-          "age":18
-        },
-        {
-          "name":"e",
-          "age":11
-        },
-        {
-          "name":"f",
-          "age":29
-        }
-      ]
-    },
-    {
-      "_id":"yash",
-      "contacts":[
-        {
-          "name":"g",
-          "age":25
-        },
-        {
-          "name":"h",
-          "age":25
-        },
-        {
-          "name":"i",
-          "age":49
-        }
-      ]
-    }
-  ]
-)
+// db.game.insertMany(
+//   [
+//     {
+//       "_id":"vicky",
+//       "contacts":[
+//         {
+//           "name":"a",
+//           "age":10
+//         },
+//         {
+//           "name":"b",
+//           "age":15
+//         },
+//         {
+//           "name":"c",
+//           "age":25
+//         }
+//       ]
+//     },
+//     {
+//       "_id":"vinny",
+//       "contacts":[
+//         {
+//           "name":"d",
+//           "age":18
+//         },
+//         {
+//           "name":"e",
+//           "age":11
+//         },
+//         {
+//           "name":"f",
+//           "age":29
+//         }
+//       ]
+//     },
+//     {
+//       "_id":"yash",
+//       "contacts":[
+//         {
+//           "name":"g",
+//           "age":25
+//         },
+//         {
+//           "name":"h",
+//           "age":25
+//         },
+//         {
+//           "name":"i",
+//           "age":49
+//         }
+//       ]
+//     }
+//   ]
+// )
 
 
 
@@ -119,4 +119,113 @@ db.game.insertMany(
 ) */
 
 
-db.game.find({"_id":"yash"})
+//db.game.find({"_id":"yash"})
+
+//   aggreat Functions 
+
+
+//use('pokemon');
+// db.restaurants.drop()
+
+// db.restaurants.insertMany( [
+//    { "_id" : 1, "name" : "Central Park Cafe", "borough" : "Manhattan"},
+//    { "_id" : 2, "name" : "Rock A Feller Bar and Grill", "borough" : "Queens"},
+//    { "_id" : 3, "name" : "Empire State Pub", "borough" : "Brooklyn"},
+//    { "_id" : 4, "name" : "Stan's Pizzaria", "borough" : "Manhattan"},
+//    { "_id" : 5, "name" : "Jane's Deli", "borough" : "Brooklyn"},
+// ] );
+
+// db.restaurants.find({})
+
+
+
+
+
+
+
+
+
+/*   Sort Function */
+
+
+
+//db.createCollection("restaurants");
+
+// db.restaurants.drop()
+
+// db.restaurants.insertMany( [
+//    { "_id" : 1, "name" : "Central Park Cafe", "borough" : "Manhattan"},
+//    { "_id" : 2, "name" : "Rock A Feller Bar and Grill", "borough" : "Queens"},
+//    { "_id" : 3, "name" : "Empire State Pub", "borough" : "Brooklyn"},
+//    { "_id" : 4, "name" : "Stan's Pizzaria", "borough" : "Manhattan"},
+//    { "_id" : 5, "name" : "Jane's Deli", "borough" : "Brooklyn"}
+// ] );
+
+//db.restaurants.find()
+
+
+
+//  db.restaurants.aggregate([
+//   {
+//     $sort : {
+//       borough : 1   //  asending order
+//     }
+//   }
+// ]);
+
+// db.restaurants.aggregate([
+//   {
+//     $sort : {
+//       borough : -1   // desending order
+//     }
+//   }
+// ]);
+
+// db.restaurants.aggregate([
+//   {
+//     $sort : {
+//        borough : 1 , _id : -1  // sorting on 2 factors
+//     }
+//   }
+// ]);
+
+
+
+
+/* Greater than or equal to */ 
+
+
+
+
+
+//db.createCollection("inventory");
+
+// db.inventory.drop()
+
+// db.inventory.insertMany( [
+//    {
+//       "item": "nuts", "quantity": 30,
+//       "carrier": { "name": "Shipit", "fee": 3 }
+//    },
+//    {
+//       "item": "bolts", "quantity": 50,
+//       "carrier": { "name": "Shipit", "fee": 4 }
+//    },
+//    {
+//       "item": "washers", "quantity": 10,
+//       "carrier": { "name": "Shipit", "fee": 1 }
+//    }
+// ] )
+
+
+//db.inventory.find( { quantity: { $gte: 10} } )
+
+// db.inventory.updateMany(
+//    { "carrier.fee": { $gte: 2 } }, { $set: { "price": 9.99 } }
+// )
+
+
+
+
+
+// db.inventory.find()
