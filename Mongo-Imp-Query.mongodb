@@ -297,23 +297,127 @@ db.collection.find({field : {$elemMatch : {field : value}}})     it is used for 
 for a object field we can use directly . notation where as for array field we will use $elemMatch
 
 
--- Distinct query
+-- Distinct query       will return distinct field names only in array
+
+db.collection.distinct(filedname)    ----flield name on which we want to get distinct check
+
+db.collection.distinct(filedname ,{condtion})
+
+
+
+-- count  query
+
+
+db.collection.find().count()
+
+
+-- Aggregation Framework
+
+   --$project
+   --$match
+   --$group
+   --$sort
+   --$skip
+
+
+
+-- $match query
+
+
+db.collection.aggregate([{$match : {filed : value}}])
+
+
+--$group query
+
+
+db.collection.aggregate([{$group : {_id : "$fieldvalue"}}])
+
+
+
+db.collection.aggregate([{$group : {_id : "$fieldvalue",displayvalue : {$sum : '$fieldname'}}}])
+
+
+db.collection.aggregate([{$group : {_id : "$fieldvalue",displayvalue : {$avg : '$fieldname'}}}])
+
+
+db.collection.aggregate([{$group : {_id : {filed1 : "$field1" , field2 : "$field2"}}}])
+
+
+
+--$skip & --sort
+
+
+db.collection.aggregate([{$group : {_id : "$fieldvalue"}},{$skip : 2}])
+
+db.collection.aggregate([{$group : {_id : "$fieldvalue"}},{$skip : 2},{$sort : {_id : 1}}])
+
+
+-- projection
+
+
+db.collection.aggregate([{$match : {filed : value}},{$project : {filed:1 , feild1:1}}])
+
+
+
+--$type query
+
+db.collection.aggregate([{$match : {filed : value}},{$project : {filed:{$type : "$field"} , feild1:1}}])
+
+
+-- count query
+
+db.collection.aggregate([{$match : {filed : value}},{$count : "TotalCount"}])
+
+--limit query
+
+db.collection.aggregate([{$match : {field : value}},{$limit : n}])
+
+
+db.collection.aggregate([{$match : {field : value}},{$project : {field : 1 , field1 : 1},{$limit : n}])
+
+
+
+db.collection.aggregate([{$group : {_id : $field,avgm : {$avg : "$field"}}}])
+
+
+
+-- $unwind
+
+
+db.collection.aggregate([{$unwind : "$arrayfield"},{$match : {field : value}},{$project : {filed1 : 1 , field2 : 1}}])
+
+
+
+db.colection.aggregate([{$unwind : "$arrayfield"},{$group : {_id : "$fieldname}}])
+
+
+
+-- $out              used to make another collection
+
+db.collectionname.aggregate([{$match : {field : value}},{$project : {field1 : 1 , field2 : 1}},{$out : "newCollection name"}])
+
+
+
+
+--$import && $export
 
 
 
 
 
+--$lookup                               relation between two collections
 
 
-
-
-
-
-
-
-
-
-
+db.coolectionname.aggregate([
+  {
+    $lookup : {
+      from : "collection2name", 
+      localField : "localfield",                                // on which we want to merge
+      foreignField :"collection2fieldname",
+      as : "anything"                           
+    }
+  }
+])
 
 
 */
