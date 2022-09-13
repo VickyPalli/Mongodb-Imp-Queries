@@ -119,32 +119,6 @@
 ) */
 
 
-//db.game.find({"_id":"yash"})
-
-//   aggreat Functions 
-
-
-//use('pokemon');
-// db.restaurants.drop()
-
-// db.restaurants.insertMany( [
-//    { "_id" : 1, "name" : "Central Park Cafe", "borough" : "Manhattan"},
-//    { "_id" : 2, "name" : "Rock A Feller Bar and Grill", "borough" : "Queens"},
-//    { "_id" : 3, "name" : "Empire State Pub", "borough" : "Brooklyn"},
-//    { "_id" : 4, "name" : "Stan's Pizzaria", "borough" : "Manhattan"},
-//    { "_id" : 5, "name" : "Jane's Deli", "borough" : "Brooklyn"},
-// ] );
-
-// db.restaurants.find({})
-
-
-
-
-
-
-
-
-
 /*   Sort Function */
 
 
@@ -229,3 +203,121 @@
 
 
 // db.inventory.find()
+
+
+
+/*
+
+
+-- $or   query
+
+db.collection.find({$or : [{field1:value},{field2:value}]})
+
+-- $and query
+
+db.collection.find({$and : [{field1:value},{field2:value}]})
+
+-- $lt   lessthan query                                        $lte   lessthan or equal to      query
+
+db.collection.find({field : {$lt : value}})                    db.collection.find({field : {$lte : value}})
+
+-- $gt   lessthan query                                        $gte   lessthan or equal to      query
+
+db.collection.find({field : {$gt : value}})                    db.collection.find({field : {$gte : value}})
+
+-- like query
+
+db.collection.find({field : /value/})
+
+-- $in   query
+
+db.collection.find({name : {$in : [...values]}})
+
+-- $nor 
+
+db.collection.find({$nor : [{field1:value},{field2:value}]})      F * F ---> True
+
+
+
+
+ 
+-- Projection    query
+
+   -- Print The selected Fields
+
+
+   db.collection.find({},{field1:1,field2:1,field3:0})      1 means display   0 means don't display
+
+
+
+
+
+-- remove query
+
+
+db.collection.remove({query})  it will delete all by default  for query match
+
+
+db.collection.remove({query},n)   it will delete n elements    n may be 0 , 1 , 2, 3 .....
+
+
+-- delete one  query
+
+db.collection.deleteOne({query})   it will delete first Match
+
+-- deleteMany  query
+
+db.collection.deleteMany({query})   it will delete all for query match
+
+
+
+--limit query       will limit the data
+
+
+db.collections.find().limit(n)              show first n elements
+
+
+-- skip query                    will skip the data
+
+
+db.collections.find().skip(n)              skip first n elements
+
+
+-- sort
+
+db.collections.find().sort({field : 1})              1 means asending order     -1 means  desending order
+
+
+-- $elemMatch    query
+
+
+db.collection.find({field : {$elemMatch : {field : value}}})     it is used for a field which is assigned by a array
+
+
+for a object field we can use directly . notation where as for array field we will use $elemMatch
+
+
+-- Distinct query
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+
+
